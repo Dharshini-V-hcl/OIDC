@@ -107,7 +107,7 @@ resource "aws_instance" "web" {
   ami           = "ami-01816d07b1128cd2d"  
   instance_type = "t2.micro"
   subnet_id     = aws_subnet.public[count.index].id
-  security_groups = [aws_security_group.web.name]
+  security_groups = [aws_security_group.web.id]
   user_data = <<-EOF
               #!/bin/bash
               yum update -y
