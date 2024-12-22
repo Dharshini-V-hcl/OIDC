@@ -38,7 +38,7 @@ resource "aws_internet_gateway" "igw" {
 
 resource "aws_eip" "nat" {
   count = 1
-  vpc   = true
+  domain = "vpc"
 }
 
 resource "aws_nat_gateway" "nat" {
@@ -131,3 +131,4 @@ output "public_subnets" {
 output "private_subnets" {
   value = aws_subnet.private[*].id
 }
+data "aws_availability_zones" "available" {}
